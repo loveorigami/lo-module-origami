@@ -1,0 +1,33 @@
+{
+    "name": "loveorigami/lo-module-origami",
+    "description": "Origami module for Lo-CMS",
+    "version": "1.0",
+    "type": "yii2-extension",
+    "keywords": [
+        "yii2",
+        "origami",
+        "module"
+    ],
+    "homepage": "https://bitbucket.org/loveorigami/lo-module-origami",
+    "time": "2016-01-06",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrey Lukyanov",
+            "email": "loveorigami@mail.ru",
+            "homepage": "http://loveorigami.info",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "source": "https://bitbucket.org/loveorigami/lo-module-origami"
+    },
+    "require": {
+        "yiisoft/yii2": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "lo\\modules\\origami\\": ""
+        }
+    }
+}
