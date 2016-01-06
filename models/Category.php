@@ -1,6 +1,6 @@
 <?php
 
-namespace lo\modules\love\models;
+namespace lo\modules\origami\models;
 
 use Yii;
 
@@ -19,13 +19,13 @@ class Category extends \lo\core\db\TActiveRecord
     const STATUS_DRAFT = 0;
     const STATUS_PUBLISHED = 1;
 
-    public $tplDir = '@lo/modules/love/modules/admin/views/category/tpl/';
+    public $tplDir = '@lo/modules/origami/modules/admin/views/category/tpl/';
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%love__cat}}';
+        return '{{%origami__cat}}';
     }
 
     /**

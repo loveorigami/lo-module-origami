@@ -1,14 +1,14 @@
 <?php
-namespace lo\modules\love\models;
+namespace lo\modules\origami\models;
 
 use Yii;
 use lo\core\db\MetaFields;
 
 
 /**
- * Class PageMeta
- * Мета описание модели страницы
- * @package app\modules\banners\models\meta
+ * Class AuthorMeta
+ * Мета описание модели
+ * @package lo\modules\origami\models
  */
 class AuthorMeta extends MetaFields
 {
@@ -30,17 +30,6 @@ class AuthorMeta extends MetaFields
     }
 
     /**
-     * Возвращает категории для dropDown
-     * @return array
-     * @throws \yii\base\InvalidConfigException
-     */
-    public function getCategoriesList()
-    {
-        $model = \Yii::createObject(Category::className());
-        return $model->getDataByParent();
-    }
-
-    /**
      * @inheritdoc
      */
     protected function config()
@@ -52,17 +41,17 @@ class AuthorMeta extends MetaFields
                     "class" => \lo\core\db\fields\ElfImgField::className(),
                     "inputClassOptions" => [
                         "widgetOptions"=>[
-                            'path'=>'love/author'
+                            'path'=>'origami/author'
                         ],
                     ],
-                    "title" => Yii::t('common', 'Image'),
+                    "title" => Yii::t('backend', 'Image'),
                 ],
                 "params" => [$this->owner, "img"]
             ],
             "name" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'Name'),
+                    "title" => Yii::t('backend', 'Name'),
                     "showInGrid" => true,
                     "showInFilter" => true,
                     "isRequired" => true,
@@ -70,30 +59,21 @@ class AuthorMeta extends MetaFields
                 ],
                 "params" => [$this->owner, "name"]
             ],
-            "fullname" => [
+            "name_ru" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'Fullname'),
+                    "title" => Yii::t('backend', 'NameRu'),
                     "showInGrid" => false,
                     "showInFilter" => true,
                     "isRequired" => false,
                 ],
-                "params" => [$this->owner, "fullname"]
+                "params" => [$this->owner, "name_ru"]
             ],
-            "date" => [
-                "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'Date'),
-                    "showInGrid" => false,
-                    "showInFilter" => true,
-                    "isRequired" => false,
-                ],
-                "params" => [$this->owner, "date"]
-            ],
+
             "link" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'Link'),
+                    "title" => Yii::t('backend', 'Link'),
                     "showInGrid" => false,
                     "showInFilter" => true,
                     "isRequired" => false,
@@ -103,59 +83,39 @@ class AuthorMeta extends MetaFields
             "slug" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\SlugField::className(),
-                    "title" => Yii::t('common', 'Slug'),
+                    "title" => Yii::t('backend', 'Slug'),
                     "showInGrid" => true,
                     "generateFrom" => "name",
                 ],
                 "params" => [$this->owner, "slug"]
             ],
 
-            "categories" => [
-                "definition" => [
-                    "class" => \lo\core\db\fields\ManyManyField::className(),
-                    "title" => Yii::t('backend', 'Categories'),
-                    "isRequired" => true,
-                    "data" => [$this, "getCategoriesList"],
-                ],
-                "params" => [$this->owner, "categoriesIds", "categories"]
-            ],
-
-
-            "in_aph" => [
+            "in_ori" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\CheckBoxField::className(),
-                    "title" => Yii::t('common', 'InAph'),
+                    "title" => Yii::t('backend', 'InOri'),
                     "showInGrid" => false,
                     "showInFilter" => true,
                 ],
-                "params" => [$this->owner, "in_aph"]
+                "params" => [$this->owner, "in_ori"]
             ],
-            "in_story" => [
+            "in_wiki" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\CheckBoxField::className(),
-                    "title" => Yii::t('common', 'InStory'),
+                    "title" => Yii::t('backend', 'InWiki'),
                     "showInGrid" => false,
                     "showInFilter" => true,
                 ],
-                "params" => [$this->owner, "in_story"]
+                "params" => [$this->owner, "in_wiki"]
             ],
-            "in_let" => [
+            "in_news" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\CheckBoxField::className(),
-                    "title" => Yii::t('common', 'InLet'),
+                    "title" => Yii::t('backend', 'InNews'),
                     "showInGrid" => false,
                     "showInFilter" => true,
                 ],
-                "params" => [$this->owner, "in_let"]
-            ],
-            "in_poem" => [
-                "definition" => [
-                    "class" => \lo\core\db\fields\CheckBoxField::className(),
-                    "title" => Yii::t('common', 'InPoem'),
-                    "showInGrid" => false,
-                    "showInFilter" => true,
-                ],
-                "params" => [$this->owner, "in_poem"]
+                "params" => [$this->owner, "in_news"]
             ],
 
             "text" => [
@@ -163,37 +123,20 @@ class AuthorMeta extends MetaFields
                     "class" => \lo\core\db\fields\HtmlField::className(),
                     "inputClass" =>[
                         'class'=>'lo\core\inputs\HtmlInput',
-                        "fileManagerController"=>['elfinder', 'path' => 'love/author'],
+                        "fileManagerController"=>['elfinder', 'path' => 'origami/author'],
                     ],
-                    "inputClassOptions" => [
-                        "widgetOptions"=>[
-                            'editorOptions'=>[
-                                //'preset' => 'basic',
-                            ]
-                        ],
-                    ],
-                    "title" => Yii::t('common', 'Text'),
+                    "title" => Yii::t('backend', 'Text'),
                     "showInGrid" => false,
                     "isRequired" => false,
                 ],
                 "params" => [$this->owner, "text"]
             ],
-            "intro" => [
-                "definition" => [
-                    "class" => \lo\core\db\fields\TextAreaField::className(),
-                    "title" => Yii::t('common', 'Intro'),
-                    "showInGrid" => false,
-                    "isRequired" => false,
-                ],
-                "params" => [$this->owner, "intro"]
-            ],
-
 
 
             "title" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'title'),
+                    "title" => Yii::t('backend', 'title'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,
@@ -203,7 +146,7 @@ class AuthorMeta extends MetaFields
             "description" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextAreaField::className(),
-                    "title" => Yii::t('common', 'description'),
+                    "title" => Yii::t('backend', 'description'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,
@@ -213,7 +156,7 @@ class AuthorMeta extends MetaFields
             "keywords" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'keywords'),
+                    "title" => Yii::t('backend', 'keywords'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,

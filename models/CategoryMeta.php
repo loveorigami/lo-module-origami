@@ -1,5 +1,5 @@
 <?php
-namespace lo\modules\love\models;
+namespace lo\modules\origami\models;
 
 use Yii;
 use lo\core\db\MetaFields;
@@ -46,10 +46,10 @@ class CategoryMeta extends MetaFields
                     "class" => \lo\core\db\fields\ElfImgField::className(),
                     "inputClassOptions" => [
                         "widgetOptions"=>[
-                            'path'=>'love/cat'
+                            'path'=>'origami/cat'
                         ],
                     ],
-                    "initValue"=>"/love/cat/none.jpg",
+                    "initValue"=>"/origami/cat/none.jpg",
                     "title" => Yii::t('backend', 'Image'),
                 ],
                 "params" => [$this->owner, "img"]
@@ -87,13 +87,22 @@ class CategoryMeta extends MetaFields
             "intro2" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextAreaField::className(),
-                    "title" => Yii::t('backend', 'Text'),
+                    "title" => Yii::t('backend', 'Intro2'),
                     "showInGrid" => false,
                     "isRequired" => false,
                 ],
                 "params" => [$this->owner, "intro2"]
             ],
 
+            "text" => [
+                "definition" => [
+                    "class" => \lo\core\db\fields\HtmlField::className(),
+                    "title" => Yii::t('backend', 'Text'),
+                    "showInGrid" => false,
+                    "isRequired" => false,
+                ],
+                "params" => [$this->owner, "text"]
+            ],
 
             "title" => [
                 "definition" => [

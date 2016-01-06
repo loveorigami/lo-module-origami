@@ -23,6 +23,6 @@ $ php yii migrate/up --migrationPath=@vendor/loveorigami/lo-module-origami/migra
 
 ### 3. Create database schema
 ```bash
-$ php yii migrate/create --migrationPath=@vendor/loveorigami/lo-module-origami/migrations "love_author"
+$ php yii migrate/create --migrationPath=@vendor/loveorigami/lo-module-origami/migrations "origami_author"
 
 ```
