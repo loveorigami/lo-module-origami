@@ -9,8 +9,9 @@
     <div class="col-lg-5">
         {img}
     </div>
-    <div class="col-lg-2" align="right">
+    <div class="col-lg-2">
         {status}
+        {total_hits}
     </div>
 </div>
 <div class="row">

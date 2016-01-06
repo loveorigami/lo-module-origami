@@ -13,6 +13,7 @@
         {in_ori}
         {in_wiki}
         {in_news}
+        {total_hits}
     </div>
 </div>
 <div class="row">

@@ -68,7 +68,7 @@ class CategoryMeta extends MetaFields
             "slug" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\SlugField::className(),
-                    "title" => Yii::t('common', 'Slug'),
+                    "title" => Yii::t('backend', 'Slug'),
                     "showInGrid" => true,
                     "generateFrom" => "name",
                 ],
@@ -104,10 +104,20 @@ class CategoryMeta extends MetaFields
                 "params" => [$this->owner, "text"]
             ],
 
+            "total_hits" => [
+                "definition" => [
+                    "class" => \lo\core\db\fields\NumberField::className(),
+                    "title" => Yii::t('backend', 'Total hits'),
+                    "showInGrid" => true,
+                    "isRequired" => false,
+                ],
+                "params" => [$this->owner, "total_hits"]
+            ],
+
             "title" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'title'),
+                    "title" => Yii::t('backend', 'title'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,
@@ -117,7 +127,7 @@ class CategoryMeta extends MetaFields
             "description" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextAreaField::className(),
-                    "title" => Yii::t('common', 'description'),
+                    "title" => Yii::t('backend', 'description'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,
@@ -127,7 +137,7 @@ class CategoryMeta extends MetaFields
             "keywords" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\TextField::className(),
-                    "title" => Yii::t('common', 'keywords'),
+                    "title" => Yii::t('backend', 'keywords'),
                     "showInGrid" => false,
                     "isRequired" => false,
                     "tab" => self::SEO_TAB,
