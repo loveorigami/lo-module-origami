@@ -6,6 +6,7 @@
         {link}
     </div>
     <div class="col-lg-5">
+        {ctr_id}
         {img}
     </div>
     <div class="col-lg-2">

@@ -3,6 +3,7 @@ namespace lo\modules\origami\models;
 
 use Yii;
 use lo\core\db\MetaFields;
+use lo\modules\geo\models\Country;
 
 
 /**
@@ -39,6 +40,7 @@ class AuthorMeta extends MetaFields
             "img" => [
                 "definition" => [
                     "class" => \lo\core\db\fields\ElfImgField::className(),
+                    "initValue"=>"/origami/author/none.jpg",
                     "inputClassOptions" => [
                         "widgetOptions"=>[
                             'path'=>'origami/author'
@@ -116,6 +118,25 @@ class AuthorMeta extends MetaFields
                     "showInFilter" => true,
                 ],
                 "params" => [$this->owner, "in_news"]
+            ],
+
+            "ctr_id" => [
+                "definition" => [
+                    "class" => \lo\core\db\fields\AjaxOneField::className(),
+                    "initValue"=>Country::DEF_COUNTRY,
+                    "inputClassOptions" => [
+                        'loadUrl' => ['/geo/country/list'],
+                    ],
+                    'gridOptions'=>[
+                        'loadUrl' => ['/geo/country/list'],
+                    ],
+                    "title" => Yii::t('backend', 'Country'),
+                    "showInGrid" => true,
+                    "showInExtendedFilter" => false,
+                    "isRequired" => false,
+                    //"data" => [$this, "getAuts"], // массив всех авторов (см. выше)
+                ],
+                "params" => [$this->owner, "ctr_id", "country"]
             ],
 
             "text" => [

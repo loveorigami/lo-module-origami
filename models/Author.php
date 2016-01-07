@@ -3,6 +3,7 @@
 namespace lo\modules\origami\models;
 
 use Yii;
+use lo\modules\geo\models\Country;
 
 /**
  * This is the model class for table "origami__author".
@@ -39,4 +40,8 @@ class Author extends \lo\core\db\ActiveRecord
         return AuthorMeta::className();
     }
 
+    public function getCountry()
+    {
+        return $this->hasOne(Country::className(), ['id' => 'ctr_id']);
+    }
 }
