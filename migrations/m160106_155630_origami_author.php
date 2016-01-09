@@ -29,7 +29,7 @@ class m160106_155630_origami_author extends Migration
             'youtube' => $this->string(),
             'email' => $this->string(),
 
-            'total_hits' => $this->integer(),
+            'total_hits' => $this->integer()->notNull(),
 
             'in_ori' => 'tinyint(1) NOT NULL DEFAULT 0',
             'in_wiki' => 'tinyint(1) NOT NULL DEFAULT 0',
@@ -44,6 +44,7 @@ class m160106_155630_origami_author extends Migration
         $this->createIndex('idx_author_ori', $this->tableName, 'in_ori');
         $this->createIndex('idx_author_wiki', $this->tableName, 'in_wiki');
         $this->createIndex('idx_author_news', $this->tableName, 'in_news');
+        $this->createIndex('idx_author_total_hits', $this->tableName, 'total_hits');
 
     }
 
