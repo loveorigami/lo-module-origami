@@ -37,11 +37,11 @@ class Author extends \lo\core\db\ActiveRecord
      */
     public function metaClass()
     {
-        return AuthorMeta::className();
+        return AuthorMeta::class;
     }
 
     public function getCountry()
     {
-        return $this->hasOne(Country::className(), ['id' => 'ctr_id']);
+        return $this->hasOne(Country::class, ['id' => 'ctr_id']);
     }
 }

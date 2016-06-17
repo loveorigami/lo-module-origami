@@ -39,7 +39,7 @@ class AuthorMeta extends MetaFields
 
             "img" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\ElfImgField::className(),
+                    "class" => \lo\core\db\fields\ElfImgField::class,
                     "initValue"=>"/origami/author/none.jpg",
                     "inputClassOptions" => [
                         "widgetOptions"=>[
@@ -52,7 +52,7 @@ class AuthorMeta extends MetaFields
             ],
             "name" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
+                    "class" => \lo\core\db\fields\TextField::class,
                     "title" => Yii::t('backend', 'Name'),
                     "showInGrid" => true,
                     "showInFilter" => true,
@@ -63,7 +63,7 @@ class AuthorMeta extends MetaFields
             ],
             "name_ru" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
+                    "class" => \lo\core\db\fields\TextField::class,
                     "title" => Yii::t('backend', 'NameRu'),
                     "showInGrid" => false,
                     "showInFilter" => true,
@@ -74,7 +74,7 @@ class AuthorMeta extends MetaFields
 
             "link" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
+                    "class" => \lo\core\db\fields\TextField::class,
                     "title" => Yii::t('backend', 'Link'),
                     "showInGrid" => false,
                     "showInFilter" => true,
@@ -84,7 +84,7 @@ class AuthorMeta extends MetaFields
             ],
             "slug" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\SlugField::className(),
+                    "class" => \lo\core\db\fields\SlugField::class,
                     "title" => Yii::t('backend', 'Slug'),
                     "showInGrid" => true,
                     "generateFrom" => "name",
@@ -94,7 +94,7 @@ class AuthorMeta extends MetaFields
 
             "in_ori" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\CheckBoxField::className(),
+                    "class" => \lo\core\db\fields\CheckBoxField::class,
                     "title" => Yii::t('backend', 'InOri'),
                     "showInGrid" => false,
                     "showInFilter" => true,
@@ -103,7 +103,7 @@ class AuthorMeta extends MetaFields
             ],
             "in_wiki" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\CheckBoxField::className(),
+                    "class" => \lo\core\db\fields\CheckBoxField::class,
                     "title" => Yii::t('backend', 'InWiki'),
                     "showInGrid" => false,
                     "showInFilter" => true,
@@ -112,7 +112,7 @@ class AuthorMeta extends MetaFields
             ],
             "in_news" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\CheckBoxField::className(),
+                    "class" => \lo\core\db\fields\CheckBoxField::class,
                     "title" => Yii::t('backend', 'InNews'),
                     "showInGrid" => false,
                     "showInFilter" => true,
@@ -122,7 +122,7 @@ class AuthorMeta extends MetaFields
 
             "ctr_id" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\AjaxOneField::className(),
+                    "class" => \lo\core\db\fields\AjaxOneField::class,
                     "initValue"=>Country::DEF_COUNTRY,
                     "inputClassOptions" => [
                         'loadUrl' => ['/geo/country/list'],
@@ -141,7 +141,7 @@ class AuthorMeta extends MetaFields
 
             "text" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\HtmlField::className(),
+                    "class" => \lo\core\db\fields\HtmlField::class,
                     "inputClass" =>[
                         'class'=>'lo\core\inputs\HtmlInput',
                         "fileManagerController"=>['elfinder', 'path' => 'origami/author'],
@@ -155,7 +155,7 @@ class AuthorMeta extends MetaFields
 
             "total_hits" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\NumberField::className(),
+                    "class" => \lo\core\db\fields\NumberField::class,
                     "title" => Yii::t('backend', 'Total hits'),
                     "showInGrid" => true,
                     "isRequired" => false,
@@ -165,7 +165,7 @@ class AuthorMeta extends MetaFields
 
             "title" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
+                    "class" => \lo\core\db\fields\TextField::class,
                     "title" => Yii::t('backend', 'title'),
                     "showInGrid" => false,
                     "isRequired" => false,
@@ -175,7 +175,7 @@ class AuthorMeta extends MetaFields
             ],
             "description" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextAreaField::className(),
+                    "class" => \lo\core\db\fields\TextAreaField::class,
                     "title" => Yii::t('backend', 'description'),
                     "showInGrid" => false,
                     "isRequired" => false,
@@ -185,7 +185,7 @@ class AuthorMeta extends MetaFields
             ],
             "keywords" => [
                 "definition" => [
-                    "class" => \lo\core\db\fields\TextField::className(),
+                    "class" => \lo\core\db\fields\TextField::class,
                     "title" => Yii::t('backend', 'keywords'),
                     "showInGrid" => false,
                     "isRequired" => false,
