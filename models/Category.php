@@ -13,13 +13,9 @@ use Yii;
  */
 class Category extends \lo\core\db\TActiveRecord
 {
-
-    use \lo\core\rbac\ConstraintTrait;
-
     const STATUS_DRAFT = 0;
     const STATUS_PUBLISHED = 1;
 
-    public $tplDir = '@lo/modules/origami/modules/admin/views/category/tpl/';
     /**
      * @inheritdoc
      */

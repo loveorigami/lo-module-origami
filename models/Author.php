@@ -16,13 +16,8 @@ use lo\modules\geo\models\Country;
  */
 class Author extends \lo\core\db\ActiveRecord
 {
-
-    use \lo\core\rbac\ConstraintTrait;
-
     const STATUS_DRAFT = 0;
     const STATUS_PUBLISHED = 1;
-
-    public $tplDir = '@lo/modules/origami/modules/admin/views/author/tpl/';
 
     /**
      * @inheritdoc
